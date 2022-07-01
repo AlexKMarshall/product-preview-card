@@ -28,6 +28,11 @@ button {
   font: inherit;
 }
 
+:focus {
+  outline-offset: 4px;
+  outline-width: 2px;
+}
+
 /* Global */
 
 :root {
@@ -45,6 +50,15 @@ button {
   --size-step--1: clamp(0.7rem, calc(0.66rem + 0.22vw), 0.84rem);
   --size-step-0: clamp(0.88rem, calc(0.8rem + 0.39vw), 1.13rem);
   --size-step-4: clamp(2.14rem, calc(1.7rem + 2.2vw), 3.55rem);
+
+  /* @link https://utopia.fyi/type/calculator?c=320,14,1.25,1050,18,1.333,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+  --size-step--1: clamp(0.7rem, calc(0.64rem + 0.32vw), 0.84rem);
+  --size-step-0: clamp(0.88rem, calc(0.77rem + 0.55vw), 1.13rem);
+  --step-1: clamp(1.09rem, calc(0.92rem + 0.89vw), 1.5rem);
+  --step-2: clamp(1.37rem, calc(1.09rem + 1.38vw), 2rem);
+  --step-3: clamp(1.71rem, calc(1.29rem + 2.09vw), 2.66rem);
+  --size-step-4: clamp(2.14rem, calc(1.52rem + 3.1vw), 3.55rem);
 
   /* @link https://utopia.fyi/space/calculator?c=320,14,1.25,1350,18,1.333,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
   --space-3xs: clamp(0.25rem, calc(0.23rem + 0.1vw), 0.31rem);
@@ -70,6 +84,32 @@ button {
   /* Custom pairs */
   --space-s-l: clamp(0.88rem, calc(0.45rem + 2.14vw), 2.25rem);
   --space-s-2xl: clamp(0.88rem, calc(-0.25rem + 5.63vw), 4.5rem);
+
+  /* @link https://utopia.fyi/space/calculator?c=320,14,1.25,1050,18,1.333,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|s-2xl */
+
+  --space-3xs: clamp(0.25rem, calc(0.22rem + 0.14vw), 0.31rem);
+  --space-2xs: clamp(0.44rem, calc(0.38rem + 0.27vw), 0.56rem);
+  --space-xs: clamp(0.69rem, calc(0.61rem + 0.41vw), 0.88rem);
+  --space-s: clamp(0.88rem, calc(0.77rem + 0.55vw), 1.13rem);
+  --space-m: clamp(1.31rem, calc(1.15rem + 0.82vw), 1.69rem);
+  --space-l: clamp(1.75rem, calc(1.53rem + 1.1vw), 2.25rem);
+  --space-xl: clamp(2.63rem, calc(2.3rem + 1.64vw), 3.38rem);
+  --space-2xl: clamp(3.5rem, calc(3.06rem + 2.19vw), 4.5rem);
+  --space-3xl: clamp(5.25rem, calc(4.59rem + 3.29vw), 6.75rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.25rem, calc(0.11rem + 0.68vw), 0.56rem);
+  --space-2xs-xs: clamp(0.44rem, calc(0.25rem + 0.96vw), 0.88rem);
+  --space-xs-s: clamp(0.69rem, calc(0.5rem + 0.96vw), 1.13rem);
+  --space-s-m: clamp(0.88rem, calc(0.52rem + 1.78vw), 1.69rem);
+  --space-m-l: clamp(1.31rem, calc(0.9rem + 2.05vw), 2.25rem);
+  --space-l-xl: clamp(1.75rem, calc(1.04rem + 3.56vw), 3.38rem);
+  --space-xl-2xl: clamp(2.63rem, calc(1.8rem + 4.11vw), 4.5rem);
+  --space-2xl-3xl: clamp(3.5rem, calc(2.08rem + 7.12vw), 6.75rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(0.88rem, calc(0.27rem + 3.01vw), 2.25rem);
+  --space-s-2xl: clamp(0.88rem, calc(-0.71rem + 7.95vw), 4.5rem);
 }
 
 body {
@@ -95,7 +135,32 @@ h1 {
   max-inline-size: 30ch;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75em;
+}
+
 /* Composition */
+
+.grid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* .grid {
+  grid-template-columns: 1fr 1fr;
+} */
 
 .switcher {
   display: flex;
@@ -140,12 +205,46 @@ h1 {
   background-color: var(--color-white);
 }
 
+.text-white {
+  color: var(--color-white);
+}
+
 .p-s {
   padding: var(--space-s);
 }
 
 /* Blocks */
 
+.image-wrapper {
+  aspect-ratio: 686 / 480;
+  background-color: coral;
+}
+
+@media (min-width: 720px) {
+  .image-wrapper {
+    aspect-ratio: 2 / 3;
+  }
+}
+
 .product-card {
-  max-inline-size: 42rem;
+  max-inline-size: 25rem;
+  border-radius: var(--space-s);
+  overflow: hidden;
+}
+
+@media (min-width: 720px) {
+  .product-card {
+    max-inline-size: 55rem;
+  }
+}
+
+.primary-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--space-3xs);
+}
+
+.primary-button:hover,
+.primary-button:active {
+  background-color: var(--color-primary-shade);
 }
