@@ -19,7 +19,8 @@ body {
 
 img,
 picture {
-  max-width: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
   display: block;
 }
 
@@ -85,9 +86,9 @@ h1 {
 }
 
 p {
-  max-width: 60ch;
+  max-inline-size: 60ch;
 }
 
 h1 {
-  max-width: 30ch;
+  max-inline-size: 30ch;
 }
