@@ -20,33 +20,33 @@
   </head>
   <body class="content-center">
     <main class="grid bg-white product-card">
-      <div class="image-wrapper">
-        <picture>
-          <source
-            srcset="./images/image-product-desktop.jpg"
-            media="(min-width:720px)"
-            width="600"
-            height="900"
-          />
-          <img
-            src="./images/image-product-mobile.jpg"
-            alt="Square bottle of amber colored perfume with metal lid. Lying on a white surface surrounded by leaves"
-            width="686"
-            height="480"
-          />
-        </picture>
-      </div>
-      <div class="stack p-s">
-        <p>Perfume</p>
+      <!-- <div class="image-wrapper"> -->
+      <picture>
+        <source
+          srcset="./images/image-product-desktop.jpg"
+          media="(min-width:720px)"
+          width="600"
+          height="900"
+        />
+        <img
+          src="./images/image-product-mobile.jpg"
+          alt="Square bottle of amber colored perfume with metal lid. Lying on a white surface surrounded by leaves"
+          width="686"
+          height="480"
+        />
+      </picture>
+      <!-- </div> -->
+      <div class="stack p-s-m">
+        <p class="uppercase tracking-wide">Perfume</p>
         <h1>Gabrielle Essence Eau De Parfum</h1>
         <p>
           A floral, solar and voluptuous interpretation composed by Olivier
           Polge, Perfumer-Creator for the House of CHANEL.
         </p>
-        <p>$149.99</p>
-        <p>
+        <p class="cluster text-size-4 prices">
+          <span class="font-display text-primary">$149.99</span>
           <span class="sr-only">Previous price </span>
-          <s>$169.99</s>
+          <s class="text-size-0">$169.99</s>
         </p>
         <button class="primary-button">
           <img src="./images/icon-cart.svg" alt="" />

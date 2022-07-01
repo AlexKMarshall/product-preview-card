@@ -145,11 +145,14 @@ button {
   gap: 0.75em;
 }
 
+s {
+  text-decoration: line-through;
+}
+
 /* Composition */
 
 .grid {
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
   grid-template-columns: 1fr;
 }
 
@@ -158,9 +161,6 @@ button {
     grid-template-columns: 1fr 1fr;
   }
 }
-/* .grid {
-  grid-template-columns: 1fr 1fr;
-} */
 
 .switcher {
   display: flex;
@@ -180,7 +180,15 @@ button {
 .stack {
   display: flex;
   flex-direction: column;
+  justify-content: var(--stack-justify, flex-start);
   gap: var(--stack-gap, var(--space-m));
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--cluster-gap, 1ch);
 }
 
 /* Utilities */
@@ -209,8 +217,40 @@ button {
   color: var(--color-white);
 }
 
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-size-4 {
+  font-size: var(--size-step-4);
+}
+
+.text-size-0 {
+  font-size: var(--size-step-0);
+}
+
+.-text-size-1 {
+  font-size: var(--size-step--1);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-wide {
+  letter-spacing: 0.2em;
+}
+
 .p-s {
   padding: var(--space-s);
+}
+
+.p-s-m {
+  padding: var(--space-s-m);
 }
 
 /* Blocks */
@@ -230,6 +270,7 @@ button {
   max-inline-size: 25rem;
   border-radius: var(--space-s);
   overflow: hidden;
+  --stack-justify: space-between;
 }
 
 @media (min-width: 720px) {
@@ -247,4 +288,8 @@ button {
 .primary-button:hover,
 .primary-button:active {
   background-color: var(--color-primary-shade);
+}
+
+.prices > s {
+  transform: translateY(-75%);
 }
