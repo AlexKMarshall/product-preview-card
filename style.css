@@ -69,13 +69,15 @@ button {
 
   /* Custom pairs */
   --space-s-l: clamp(0.88rem, calc(0.45rem + 2.14vw), 2.25rem);
+  --space-s-2xl: clamp(0.88rem, calc(-0.25rem + 5.63vw), 4.5rem);
 }
 
 body {
   color: var(--color-neutral);
-  background-color: var(--color-white);
+  background-color: var(--color-secondary);
   font-size: var(--size-step-0);
   font-family: var(--font-base);
+  padding: var(--space-s-2xl);
 }
 
 h1 {
@@ -91,4 +93,59 @@ p {
 
 h1 {
   max-inline-size: 30ch;
+}
+
+/* Composition */
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.switcher > * {
+  flex-grow: 1;
+  flex-basis: calc((35rem - 100%) * 999);
+}
+
+.content-center {
+  display: grid;
+  place-content: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, var(--space-m));
+}
+
+/* Utilities */
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.debug {
+  outline: 1px solid red;
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.p-s {
+  padding: var(--space-s);
+}
+
+/* Blocks */
+
+.product-card {
+  max-inline-size: 42rem;
 }
