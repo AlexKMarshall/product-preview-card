@@ -28,7 +28,7 @@ button {
   font: inherit;
 }
 
-:focus {
+:focus-visible {
   outline-offset: 4px;
   outline-width: 2px;
 }
@@ -45,6 +45,8 @@ button {
   --color-neutral: hsl(228deg 12% 48%);
   --color-neutral-strong: hsl(212deg 21% 14%);
   --color-white: hsl(157deg 0% 100%);
+  --transition-fade: 200ms ease;
+  --transition-movement: var(--transition-time-movement, 200ms) ease;
 
   /* @link https://utopia.fyi/type/calculator?c=320,14,1.25,1400,16,1.333,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-m */
 
@@ -73,6 +75,12 @@ button {
   --space-l-xl: clamp(1.75rem, calc(1.38rem + 1.85vw), 3rem);
   --space-xl-2xl: clamp(2.63rem, calc(2.22rem + 2.04vw), 4rem);
   --space-2xl-3xl: clamp(3.5rem, calc(2.76rem + 3.7vw), 6rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-time-movement: 0.01ms !important;
+  }
 }
 
 body {
@@ -178,6 +186,10 @@ s {
   background-color: var(--color-primary);
   color: var(--color-white);
   border-radius: var(--space-3xs);
+  --focus-ring-color: var(--color-primary);
+}
+
+.primary-button:focus-visible {
   outline-color: var(--color-primary);
 }
 
@@ -260,4 +272,29 @@ s {
 .fit-cover {
   block-size: 100%;
   object-fit: cover;
+}
+
+.focus-ring {
+  --outline-offset: clamp(2px, 0.3em, 0.75rem);
+  outline-color: transparent;
+  outline-style: solid;
+  outline-width: clamp(2px, 0.2em, 0.75rem);
+  outline-offset: var(--outline-offset);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .focus-ring {
+    outline-offset: 0;
+  }
+}
+
+.focus-ring:focus-visible {
+  outline-offset: var(--outline-offset);
+  outline-color: var(--focus-ring-color, black);
+}
+
+.transition {
+  transition: background-color var(--transition-fade),
+    outline-color var(--transition-fade),
+    outline-offset var(--transition-movement);
 }
