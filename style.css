@@ -257,6 +257,11 @@ s {
   padding: var(--space-s-m);
 }
 
+.fit-cover {
+  block-size: 100%;
+  object-fit: cover;
+}
+
 /* Blocks */
 
 .image-wrapper {
