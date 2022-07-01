@@ -184,6 +184,10 @@ s {
   gap: var(--stack-gap, var(--space-m));
 }
 
+.stack-gap-s {
+  --stack-gap: var(--space-s);
+}
+
 .cluster {
   display: flex;
   flex-wrap: wrap;
@@ -283,6 +287,7 @@ s {
   background-color: var(--color-primary);
   color: var(--color-white);
   border-radius: var(--space-3xs);
+  outline-color: var(--color-primary);
 }
 
 .primary-button:hover,
