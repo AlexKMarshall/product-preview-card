@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Product preview card showing product image, name, price and ability to add to cart](https://user-images.githubusercontent.com/48052439/178445625-0faa1359-2816-4ad9-a548-2d7f5e32cafc.png)
 
 ### Links
 
